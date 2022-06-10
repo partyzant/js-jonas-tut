@@ -108,7 +108,7 @@ const checkDogs = (dogsJulia, dogsKate) => {
 
 // console.log(movements.filter(el => el < 0 && el));
 
-accounts.map(el => {
+/* accounts.map(el => {
   console.log(
     el.owner
       .toLocaleLowerCase()
@@ -117,4 +117,18 @@ accounts.map(el => {
         return `${acc}${el[0]}`;
       }, '')
   );
-});
+}); */
+
+// #3
+
+const wynik = [5, 2, 4, 1, 15, 8, 3]
+  .map(el => (el > 2 ? el * 4 + 16 : el * 2))
+  .filter(el => el > 18)
+  .reduce(
+    (acc, el, id, arr) =>
+      // id == arr.length - 1 ? (acc + el) / arr.length : acc + el,
+      acc + el / arr.length,
+    0
+  );
+
+console.log(wynik);
