@@ -238,4 +238,31 @@ btnLogin.addEventListener('click', e => {
   logInUser(inputLoginUsername.value, inputLoginPin.value);
 });
 
+btnLoan.addEventListener('click', e => {
+  e.preventDefault();
+  console.log(currentAccount.movements);
+  console.log(
+    currentAccount.movements.some(
+      mov => mov * 10 >= Number(inputLoanAmount.value)
+    )
+  );
+});
+
+btnClose.addEventListener('click', e => {
+  e.preventDefault();
+
+  if (
+    currentAccount.username === inputCloseUsername.value &&
+    currentAccount.pin === Number(inputClosePin.value)
+  ) {
+    const delId = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+
+    accounts.splice(delId, 1);
+    containerApp.style.opacity = 0;
+  }
+
+  inputCloseUsername.value = inputClosePin.value = '';
+});
 logInUser('js', '1111');
